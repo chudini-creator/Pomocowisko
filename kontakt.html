@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="./styles/color.css">
 </head>
 <body>
+
     <div id="header-placeholder"></div>
       <script>
           fetch('header.html')
@@ -19,29 +20,25 @@
             document.body.appendChild(script);
         });
       </script>
-    <div class="contact-card">
-    <h1>Kontakt</h1>
-    <div class="contact-info">
+    <div class="main-container">
+      <div class="contact-card">
+      <h1>Kontakt</h1>
+        <div class="contact-info">
+            <div class="info-row">
+              📍 <strong class="icon">Adres:</strong>&nbsp; Ujazdów 1, 22-413
+            </div>
 
-      <div class="info-row">
-        📍 <strong class="icon">Adres:</strong>&nbsp; ul. Przykładowa 123, 00-000 Słoneczny Ujazdów
+            <div class="info-row">
+              📞 <strong class="icon">Telefon:</strong>&nbsp; <a href="tel:+48123456789">+48 603 120 157</a>
+            </div>
+
+            <div class="info-row">
+              ✉️ <strong class="icon">E-mail:</strong>&nbsp; <a href="mailto:kontakt@example.com">pomocowisko@gmail.com</a>
+            </div>
+
+          </div>
       </div>
-
-      <div class="info-row">
-        📞 <strong class="icon">Telefon:</strong>&nbsp; <a href="tel:+48123456789">+48 123 456 789</a>
-      </div>
-
-      <div class="info-row">
-        ✉️ <strong class="icon">E-mail:</strong>&nbsp; <a href="mailto:kontakt@example.com">fundacja@pomocowisko.pl</a>
-      </div>
-
-      <div class="info-row">
-        🕒 <strong class="icon">Godziny otwarcia: (O ile w ogóle)</strong>&nbsp; Pon–Pt: 9:00 – 17:00
-      </div>
-
     </div>
-    
-  </div>
   <div id="footer-placeholder"></div>
     <script>
         fetch('footer.html')

@@ -36,7 +36,7 @@ body{
     margin-top: 10px;
     width: 90%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 0.6fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.4fr));
     gap: 1rem;
 }
 .Container .project{

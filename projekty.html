@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/projekty-style.css">
+    <link rel="stylesheet" href="styles/header-style.css">
+    <title>Pomocowisko</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          const script = document.createElement('script');
+          script.src = 'scripts/header-script.js';
+          document.body.appendChild(script);
+      });
+    </script>
+    <section id="projects">
+        <section id="upcomingProjects" class="fade-in">
+            <h1>Nadchodzące projekty</h1>
+            <div class="wrapper">
+              <div class="arrow left" id="upcoming-left">&#10094;</div>
+              <div class="arrow right" id="upcoming-right">&#10095;</div>
+                <div class="Container Future">
+                    <div class="project FutureProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Sesja gotowania</h2>
+                    </div>
+                    <div class="project FutureProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Szkolenie z makijażu</h2>
+                    </div>
+                    <div class="project FutureProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Pielgrzymka do Częstochowy</h2>
+                    </div>
+                </div>
+                <div class="dots"></div>
+            </div>
+            
+
+        </section>
+        <section id="pastProjects" class="fade-in">
+            <h1>Przeszłe projekty</h1>
+            
+            <div class="wrapper">
+              <div class="arrow left" id="past-left">&#10094;</div>
+              <div class="arrow right" id="past-right">&#10095;</div>
+                <div class="Container Past">
+                    <div class="project PastProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Projekt</h2>
+                    </div>
+                    <div class="project PastProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Projekt</h2>
+                    </div>
+                    <div class="project PastProject">
+                        <img src="https://narudo.pl/wp-content/uploads/2019/03/38.png" alt="">
+                        <h2>Projekt</h2>
+                    </div>
+                </div>
+                <div class="dotsPast"></div>
+            </div>
+            
+        </section>
+    </section>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const relacje = document.querySelector('.Container');
+    const karty = document.querySelectorAll('.FutureProject');
+    const dotsContainer = document.querySelector('.dots');
+    let width = window.innerWidth;
+    if (width <= 768) {
+      karty.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          relacje.scrollTo({
+            left: i * relacje.clientWidth,
+            behavior: 'smooth'
+          });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      relacje.addEventListener('scroll', () => {
+        const index = Math.round(relacje.scrollLeft / relacje.clientWidth);
+        document.querySelectorAll('.dot').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      });
+    }
+  });
+    </script>
+
+
+    <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const relacje = document.querySelector('.Past');
+    const karty = document.querySelectorAll('.PastProject');
+    const dotsContainer = document.querySelector('.dotsPast');
+    let width = window.innerWidth;
+    if (width <= 768) {
+      karty.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dotPast');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          relacje.scrollTo({
+            left: i * relacje.clientWidth,
+            behavior: 'smooth'
+          });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      relacje.addEventListener('scroll', () => {
+        const index = Math.round(relacje.scrollLeft / relacje.clientWidth);
+        document.querySelectorAll('.dotPast').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      });
+    }
+  });
+    </script>
+
+
+    <script>
+function addScrollButtons(containerSelector, leftBtnId, rightBtnId) {
+  const container = document.querySelector(containerSelector);
+  const leftBtn = document.getElementById(leftBtnId);
+  const rightBtn = document.getElementById(rightBtnId);
+
+  if (!container || !leftBtn || !rightBtn) return;
+
+  const scrollAmount = container.clientWidth;
+
+  leftBtn.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  rightBtn.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addScrollButtons('.Future', 'upcoming-left', 'upcoming-right');
+  addScrollButtons('.Past', 'past-left', 'past-right');
+});
+    </script>
+
+
+
+    <script>
+      const elements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            }
+        });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+    
+</body>
+</html>

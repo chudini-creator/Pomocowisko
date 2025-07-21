@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O fundacji</title>
+    <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/oFundacji-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          const script = document.createElement('script');
+          script.src = 'scripts/header-script.js';
+          document.body.appendChild(script);
+      });
+    </script>
+    <section id="main-content">
+      <div class="element">
+        <div class="content">
+        <h2 id="idea">Skąd pomysł?</h2>
+        <p>Pomysł na fundacje powstał po wybuchu wojny w Ukrainie. Od początku konfliktu zaangażowaliśmy się w działania pomocowe, wspierając potrzebujące rodziny. Rozdzierający widok dzieci, kobiet i osób z niepełnosprawnościami, wysiadających z ostrzelanych pociągów, bardzo szybko zmotywował nas do szukania sposobów pomocy najbardziej potrzebującym. Zaczęliśmy od przygotowywania zup i kanapek, które trafiały do osób oczekujących na przekroczenie granicy. Później, przez dwa lata, udostępnialiśmy przestrzeń Dworu Ujazdowskiego wielu potrzebującym rodzinom. Oprócz zakwaterowania, zapewniliśmy im codzienne posiłki, opiekę medyczną i psychologiczną. Do tej pory pomagamy kilku rodzinom, które zostały w Polsce. To zmotywowało nas do stworzenia przedsiębiorstwa społecznego, które wspiera ich w odnalezieniu się w nowym kraju.</p>
+        </div>
+      </div>
+      <div class="element">
+        <div class="content">
+        <h2 id="name">Skąd nazwa?</h2>
+        <p>Nazwa fundacji powstała z potrzeby działania i niesienia pomocy. Od początku naszej działalności dążyliśmy do stworzenia miejsca, które będzie nie tylko punktem pomocy, ale też bezpieczną przestrzenią dla każdego, kto znalazł się w trudnej sytuacji. Chcieliśmy, aby nazwa była prosta, ciepła i bliska ludziom – tak jak my jesteśmy blisko tych, którym pomagamy.</p>
+        </div>
+      </div>
+    </section>
+    
+
+     <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+</body>
+</html>

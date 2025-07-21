@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--tlo);
+}
+#hero{
+    width: auto;
+    height: 100vh;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    background: url("../img/grafika.png");
+    background-repeat: no-repeat;
+    background-position: start;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    overflow: hidden;
+    z-index: 1;
+}
+#MoreInfo{
+    background-color: var(--glowny);
+    color: var(--bialy);
+    border-radius: 10px;
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 600;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin-bottom: 10%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-in-out;
+    &:hover{
+        transition: all 0.3s ease-in-out;
+        background-color: var(--hover);
+        transform: scale(1.1) translateY(-5px);
+    }
+}
+#Blog{
+    margin-top: 15px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+#Blog h1{
+    font-size: 5vh;
+    font-weight: 900;
+    color: var(--glowny);
+}
+#Blog{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+.Container{
+    margin-left: 5%;
+    margin-top: 10px;
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 0.6fr));
+    gap: 1rem;
+}
+.Container .project{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    background-color: var(--glowny);
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    &:hover{
+        transition: all 0.3s ease-in-out;
+        border-radius: 15px;
+        box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.15)
+    }
+}
+.Container .project img{
+    border-radius: 6px 6px 0 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.Container .project h2{
+    font-size: 2.5vh;
+    font-weight: 800;
+    color: var(--bialy);
+    text-align: center;
+    padding: 5%;
+}
+ .wrapper{
+  width:100%;
+  position: relative;
+}
+.card {
+  min-width: 25%;
+  background: var(--bialy);
+  padding: .4em;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.card-image {
+  background: url("../img/grafika.png") no-repeat center center/cover;
+  width: 100%;
+  height: 150px;
+  border-radius: 6px 6px 0 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-image:hover {
+  transform: scale(0.98);
+}
+.heading {
+  font-weight: 600;
+  color: var(--glowny);
+  padding: 7px;
+}
+
+.heading:hover {
+  cursor: pointer;
+}
+.author {
+  color: gray;
+  font-weight: 400;
+  font-size: 11px;
+  padding-top: 20px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.name:hover {
+  cursor: pointer;
+}
+.arrow{
+  display: none;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media screen and (max-width: 768px) {
+  .Container {
+    margin-left: 5%;
+    display: flex;
+    overflow-x: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+  }
+  .card{
+    margin-top: 20px;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-height: 200px;
+    border: solid 1px var(--glowny);
+    box-shadow: none;
+    transform: none;
+  }
+  .dots, .dotsPast, .dotsArt {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .dot, .dotArt, .dotPast{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 6px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .dot.active, .dotArt.active, .dotPast.active {
+    background: var(--glowny);
+  }
+  .arrow {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  cursor: pointer;
+  z-index: 2;
+  background: rgba(255, 255, 255, 1);
+  color: var(--glowny);
+  padding: 10px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 2%;
+}
+
+.arrow.right {
+  right: 2%;
+}
+}

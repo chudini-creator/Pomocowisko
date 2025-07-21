@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/index-style.css">
+    <link rel="stylesheet" href="styles/header-style.css">
+    <title>Pomocowisko</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          const script = document.createElement('script');
+          script.src = 'scripts/header-script.js';
+          document.body.appendChild(script);
+      });
+    </script>
+    <div id="hero"><a href="#Blog" id="MoreInfo">Więcej informacji</a></div>
+    
+    <section id="Blog" class="fade-in">
+        <h1>Aktualności</h1>
+
+        <div class="wrapper fade-in"> 
+            <div class="arrow left" id="articles-left">&#10094;</div>
+            <div class="arrow right" id="articles-right">&#10095;</div>
+            <div class="Container Articles">
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="heading"> Artykuł
+                        <div class="author"> By <span class="name">Abi</span> 4 days ago</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="heading"> Artykuł
+                        <div class="author"> By <span class="name">Abi</span> 4 days ago</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="heading">Nagłówek artykułu
+                        <div class="author"> By <span class="name">Kaja</span> 4 days ago</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="heading"> Artykuł
+                        <div class="author"> By <span class="name">Kaja</span> 4 days ago</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-image"></div>
+                    <div class="heading"> Artykuł
+                        <div class="author"> By <span class="name">Kaja</span> 4 days ago</div>
+                    </div>
+                </div>
+            </div>
+            <div class="dotsArt"></div>
+        </div>
+        
+    </section>
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const relacje = document.querySelector('.Articles');
+    const karty = document.querySelectorAll('.card');
+    const dotsContainer3 = document.querySelector('.dotsArt');
+
+    if (window.innerWidth <= 768) {
+      karty.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dotArt');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          relacje.scrollTo({
+            left: i * relacje.clientWidth,
+            behavior: 'smooth'
+          });
+        });
+        dotsContainer3.appendChild(dot);
+      });
+
+      relacje.addEventListener('scroll', () => {
+        const index = Math.round(relacje.scrollLeft / relacje.clientWidth);
+        document.querySelectorAll('.dotArt').forEach((d, i) => {
+          d.classList.toggle('active', i === index);
+        });
+      });
+    }
+  });
+    </script>
+    <script>
+function addScrollButtons(containerSelector, leftBtnId, rightBtnId) {
+  const container = document.querySelector(containerSelector);
+  const leftBtn = document.getElementById(leftBtnId);
+  const rightBtn = document.getElementById(rightBtnId);
+
+  if (!container || !leftBtn || !rightBtn) return;
+
+  const scrollAmount = container.clientWidth;
+
+  leftBtn.addEventListener('click', () => {
+    container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+  });
+
+  rightBtn.addEventListener('click', () => {
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  addScrollButtons('.Articles', 'articles-left', 'articles-right');
+});
+    </script>
+    <script>
+      const elements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            }
+        });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+    
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/zespol-style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Zespół</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          const script = document.createElement('script');
+          script.src = 'scripts/header-script.js';
+          document.body.appendChild(script);
+      });
+    </script>
+
+    <section class="team">
+        <h1>NASZ ZESPÓŁ</h1>
+        <div id="karty-zespol">
+            <div class="card">
+                <img src="img/1.jpg"/>
+            </div>
+            <div class="card">
+                <img src="img/3.jpg"/>
+            </div>
+            <div class="card">
+                <img src="img/2.jpg"/>
+            </div>
+        </div>
+    </section>
+    
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('appear');
+            }
+            });
+        }, { threshold: 0.3 });
+
+        cards.forEach(card => observer.observe(card));
+    </script>
+
+</body>
+</html>

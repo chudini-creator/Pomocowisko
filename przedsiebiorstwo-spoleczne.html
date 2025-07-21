@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/color.css">
+    <link rel="stylesheet" href="styles/przedsiebiorstwo-spoleczne-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <title>Przedsiębiorstwo społeczne</title>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <script>
+        fetch('header.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('header-placeholder').innerHTML = data;
+          const script = document.createElement('script');
+          script.src = 'scripts/header-script.js';
+          document.body.appendChild(script);
+      });
+    </script>
+
+    <main id="spoleczne" class="fade-in">
+        <div id="spol">
+                <h1>PRZEDSIĘBIORSTWO SPOŁECZNE</h1>
+                <p>Fundacja Pomocowisko realizuje idee przedsiębiorstwa społecznego od 1 marca 2025 r. została wpisana na listę przedsiębiorstw społecznych.</p>
+                <p>Przedsiębiorstwa społeczne stanowią obecnie istotny element polityki społecznej, ponieważ służą zatrudnianiu osób bezrobotnych i będących w trudnej sytuacji np. z powodu niepełnosprawności lub ubóstwa.</p>
+                <p>Właśnie dlatego tworzenie przedsiębiorstw społecznych wspierane jest między innymi ze środków Europejskiego Funduszu Społecznego wg zasad i definicji zawartych w Wytycznych w zakresie realizacji przedsięwzięć w obszarze włączenia społecznego i zwalczania ubóstwa z wykorzystaniem środków EFS i EFRR.</p>
+                <p>Zgodnie z definicją z wytycznych z 8 lipca 2019 przedsiębiorstwo społeczne:</p>
+                <ol>
+                    <li>to podmiot ekonomii społecznej, który prowadzi działalność gospodarczą zarejestrowaną w KRS lub działalność odpłatną pożytku publicznego lub działalność oświatową lub działalność kulturalną;</li>
+                    <li>zatrudnia co najmniej 30% osób, które znalazły się w trudnej sytuacji;</li>
+                    <li>nie dystrybuuje zysku pomiędzy udziałowców, akcjonariuszy lub pracowników, ale przeznacza go na rozwój firmy lub na reintegrację zawodową i społeczną;</li>
+                    <li>jest zarządzane na zasadach demokratycznych;</li>
+                    <li>posiada limit wysokości wynagrodzeń tak, aby ich wysokość nie była sprzeczna z ideą przedsiębiorstwa społecznego;</li>
+                    <li>zatrudnia w oparciu o umowę o pracę, spółdzielczą umowę o pracę lub umowę cywilnoprawną (z wyłączeniem osób zatrudnionych na podstawie umów cywilnoprawnych, które prowadzą działalność gospodarczą), co najmniej trzy osoby w wymiarze czasu pracy co najmniej ¼ etatu, a w przypadku umów cywilnoprawnych na okres nie krótszy niż 3 miesiące i obejmujący nie mniej niż 120 godzin pracy łącznie przez wszystkie miesiące, przy zachowaniu proporcji zatrudnienia określonych w pkt 2;</li>
+                    <li>prowadzi wobec zatrudnionych osób, o których mowa w pkt 2, uzgodniony z tymi osobami i określony w czasie proces reintegracyjny, mający na celu zdobycie lub odzyskanie kwalifikacji zawodowych lub kompetencji kluczowych.</li>
+                </ol>
+                <p>Fundacja Pomocowisko aktywnie wspiera osoby znajdujące się w trudnej sytuacji życiowej – w szczególności osoby bezrobotne, z niepełnosprawnościami oraz dotknięte ubóstwem. Działa na rzecz ich aktywizacji zawodowej, oferując zatrudnienie i wsparcie w powrocie na rynek pracy.</p>
+                <p>Fundacja integruje lokalnych pracodawców z osobami długotrwale bezrobotnymi i społecznie wykluczonymi, tworząc pomost między potrzebami rynku pracy a potencjałem osób zagrożonych marginalizacją. Dąży do budowania wspierających się społeczności lokalnych, w których każdy ma szansę na godne życie i aktywne uczestnictwo społeczne.</p>
+        </div>
+    </main>    
+
+
+    <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+
+    <script>
+        const elements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            }
+        });
+        }, { threshold: 0.1 });
+
+        elements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

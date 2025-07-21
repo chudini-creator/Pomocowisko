@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kontakt</title>
+  <link rel="stylesheet" href="./styles/kontakt-style.css">
+  <link rel="stylesheet" href="./styles/color.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+      <script>
+          fetch('header.html')
+          .then(res => res.text())
+          .then(data => {
+            document.getElementById('header-placeholder').innerHTML = data;
+            const script = document.createElement('script');
+            script.src = 'scripts/header-script.js';
+            document.body.appendChild(script);
+        });
+      </script>
+    <div class="contact-card">
+    <h1>Kontakt</h1>
+    <div class="contact-info">
+
+      <div class="info-row">kutas
+        📍 <strong class="icon">Adres:</strong>&nbsp; ul. Przykładowa 123, 00-000 Słoneczny Ujazdów
+      </div>
+
+      <div class="info-row">
+        📞 <strong class="icon">Telefon:</strong>&nbsp; <a href="tel:+48123456789">+48 123 456 789</a>
+      </div>
+
+      <div class="info-row">
+        ✉️ <strong class="icon">E-mail:</strong>&nbsp; <a href="mailto:kontakt@example.com">fundacja@pomocowisko.pl</a>
+      </div>
+
+      <div class="info-row">
+        🕒 <strong class="icon">Godziny otwarcia: (O ile w ogóle)</strong>&nbsp; Pon–Pt: 9:00 – 17:00
+      </div>
+
+    </div>
+    
+  </div>
+  <div id="footer-placeholder"></div>
+    <script>
+        fetch('footer.html')
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById('footer-placeholder').innerHTML = data;
+      });
+    </script>
+
+</body>
+</html>

@@ -9,14 +9,17 @@
 body{
   background-color: var(--tlo);
 }
+#imgHeader{
+  display: none;
+}
 #hero{
     width: auto;
     height: 80vh;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    background: url("../img/grafika.png");
+    background: url("../img/kutas.png");
     background-repeat: no-repeat;
-    background-position: start;
-    background-size: cover;
+    background-position: center;
+    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -35,7 +38,7 @@ body{
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     z-index: 1;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-in-out;
